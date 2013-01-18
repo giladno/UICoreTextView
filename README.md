@@ -20,30 +20,36 @@ Examples
 Please also refer to the demo project for a working demo.
 
 #### Basic styling
-    m_coreText.attributedString=[NSAttributedString attributedStringWithHTML:@"<span font='Papyrus' size='12' color='rgba(255,0,255,0.5)'>This is a styled string</span>"];
+``` objective-c
+m_coreText.attributedString=[NSAttributedString attributedStringWithHTML:@"<span font='Papyrus' size='12' color='rgba(255,0,255,0.5)'>This is a styled string</span>"];
+```
 
 #### Custom Rendering
 ###### 50x50 Blue circle renderer
-    @interface BlueCircle : NSObject<HTMLRenderer>
-    @end
-    @implementation BlueCircle
-    -(CGSize)size
-    {
-    	return CGSizeMake(50, 50);
-    }
-    -(void)renderInContext:(CGContextRef)context rect:(CGRect)rect
-    {
-    	CGContextSetFillColorWithColor(context, [UIColor blueColor].CGColor);
-    	CGContextFillEllipseInRect(context, rect);
-    }
-    @end
+``` objective-c
+@interface BlueCircle : NSObject<HTMLRenderer>
+@end
 
+@implementation BlueCircle
+-(CGSize)size
+{
+	return CGSizeMake(50, 50);
+}
+-(void)renderInContext:(CGContextRef)context rect:(CGRect)rect
+{
+	CGContextSetFillColorWithColor(context, [UIColor blueColor].CGColor);
+	CGContextFillEllipseInRect(context, rect);
+}
+@end
+```
 ###### Using the renderer callback
-    NSString* html=@"DIV elements generate custom renderers: <div />";
-    m_coreText.attributedString=[NSAttributedString attributedStringWithHTML:html renderer:^id<HTMLRenderer>(NSMutableDictionary* attributes)
-    {
-    	return [[BlueCircle alloc] init];
-    }];
+``` objective-c
+NSString* html=@"DIV elements generate custom renderers: <div />";
+m_coreText.attributedString=[NSAttributedString attributedStringWithHTML:html renderer:^id<HTMLRenderer>(NSMutableDictionary* attributes)
+{
+	return [[BlueCircle alloc] init];
+}];
+```
 
 Styling
 -
@@ -53,40 +59,50 @@ Since UICoreTextView was designed mainly to work with custom renderers - passing
 The syntax was meant to be as simple as possible and at no point was it designed to follow HTML standards. For that reason, some of the HTML tags/attributes might differ from the original specs (for example, &lt;s&gt; for stroke rather than &lt;stroke&gt;)
 
 ### Text
-    <span font='ArialMT|Georgia|...' size='16'>Font manipulation, we can change font name and size</font>
+``` html
+<span font='ArialMT|Georgia|...' size='16'>Font manipulation, we can change font name and size</font>
 
-    <b>Bold>
-    <u style='none|single|thick|double'>Underline</u>
-    <i>Italic</i>
-    <s width='3' color='rgb(255,0,0)'>Red stroke</s>
+<b>Bold>
+<u style='none|single|thick|double'>Underline</u>
+<i>Italic</i>
+<s width='3' color='rgb(255,0,0)'>Red stroke</s>
 
-    <span align='natural|left|right|center|justified'>Aligned text</span>
-    <span direction='rtl|ltr'>RTL or LTR text</span>
-    <span wrap='word|break-word|clip|ellipsis-head|ellipsis-tail|ellipsis-middle'>Wrapped text</span>
+<span align='natural|left|right|center|justified'>Aligned text</span>
+<span direction='rtl|ltr'>RTL or LTR text</span>
+<span wrap='word|break-word|clip|ellipsis-head|ellipsis-tail|ellipsis-middle'>Wrapped text</span>
+```
 
 ### Colors
-    <span color='#FF0000'>Standard HTML colors</span>
-    <span color='rgb(255,0,0)'>RGB color</span>
-    <span color='rgba(255,0,0,0.5)'>RGBA color</span>
+``` html
+<span color='#FF0000'>Standard HTML colors</span>
+<span color='rgb(255,0,0)'>RGB color</span>
+<span color='rgba(255,0,0,0.5)'>RGBA color</span>
+```
 
 ### Links
 By default, all links will render using a blue color and a single underline (which you can override using the <code>color</code> tag and an embedded <code>u</code> tag).
 UICoreTextView will try by default to open any link using <code>[[UIApplication sharedApplication] openURL:url]</code>. You can prevent this behaviour by returning YES from <code>-(BOOL)coreTextView:(UICoreTextView*)view openURL:(NSURL*)url</code> delegate.
 
-    <a href='http://www.google.com/'>Google.com</a>
-    <a href='tel:+180012345678'>Click to call</a>
+``` html
+<a href='http://www.google.com/'>Google.com</a>
+<a href='tel:+180012345678'>Click to call</a>
+```
 
 ### Images
 Images can be embedded using the <b>base64:</b> prefix or be loaded from disk. Images will be loaded using <code>[UIImage imageNamed:src]</code> - unless the <b>file://</b> scheme is specified.
 For images, you can also use the <code>valign='middle'</code> attribute to center them vertically.
 
-    <img src='base64:iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==' />
-    <img width='50' height='50' src='avatar.png' />
-    <img src='file://..../house.jpg' valign='middle' />
+``` html
+<img src='base64:iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==' />
+<img width='50' height='50' src='avatar.png' />
+<img src='file://..../house.jpg' valign='middle' />
+```
 
 ### Others
-    <br>
-    <hr height='5' color='#FF0000' />
+``` html
+<br>
+<hr height='5' color='#FF0000' />
+```
 
 Custom Renderer
 -
@@ -99,51 +115,59 @@ To create a custom renderer, simply use a <code>div</code> tag inside your HTML.
 
 To be able to create a custom renderer, you'll need to pass a callback to the HTML parser:
 
-    NSString* html=@"<div type='square' /><div type='circle' />";
-    m_coreText.attributedString=[NSAttributedString attributedStringWithHTML:html renderer:^id<HTMLRenderer>(NSMutableDictionary* attributes)
-    {
-    	if ([attributes[@"type"] isEqualToString:@"circle"])
-    	{
-    	...
-    	}
-    	return m_customRenderer;
-    }];
+``` objective-c
+NSString* html=@"<div type='square' /><div type='circle' />";
+m_coreText.attributedString=[NSAttributedString attributedStringWithHTML:html renderer:^id<HTMLRenderer>(NSMutableDictionary* attributes)
+{
+	if ([attributes[@"type"] isEqualToString:@"circle"])
+	{
+	...
+	}
+	return m_customRenderer;
+}];
+```
 
 A custom renderer can be any object defining the <code>HTMLRenderer</code> protocol:
 
-    @protocol HTMLRenderer<NSObject>
-    @required
-    @property(nonatomic,readonly) CGSize size;
-    @optional
-    @property(nonatomic,readonly) CGFloat ascent;
-    @property(nonatomic,readonly) CGFloat descent;
+``` objective-c
+@protocol HTMLRenderer<NSObject>
+@required
+@property(nonatomic,readonly) CGSize size;
+@optional
+@property(nonatomic,readonly) CGFloat ascent;
+@property(nonatomic,readonly) CGFloat descent;
 
-    @required
-    -(void)renderInContext:(CGContextRef)context rect:(CGRect)rect;
-    @end
+@required
+-(void)renderInContext:(CGContextRef)context rect:(CGRect)rect;
+@end
+```
 
 The only 2 required methods are <code>-(CGSize>size</code> and <code>-(void)renderInContext:(CGContextRef)context rect:(CGRect)rect</code>, so if we want to draw a simple blue circle, our renderer will be similar to the following implementation:
 
-    @interface BlueCircle : NSObject<HTMLRenderer>
-    @end
-    @implementation BlueCircle
-    -(CGSize)size
-    {
-    	return CGSizeMake(50, 50);	// make our circle 50x50 points
-    }
-    -(void)renderInContext:(CGContextRef)context rect:(CGRect)rect
-    {
-    	CGContextSetFillColorWithColor(context, [UIColor blueColor].CGColor);
-    	CGContextFillEllipseInRect(context, rect);
-    }
-    @end
+``` objective-c
+@interface BlueCircle : NSObject<HTMLRenderer>
+@end
+@implementation BlueCircle
+-(CGSize)size
+{
+	return CGSizeMake(50, 50);	// make our circle 50x50 points
+}
+-(void)renderInContext:(CGContextRef)context rect:(CGRect)rect
+{
+	CGContextSetFillColorWithColor(context, [UIColor blueColor].CGColor);
+	CGContextFillEllipseInRect(context, rect);
+}
+@end
+```
 
 We then use the parser's factory callback to create a new instance of <code>BlueCircle</code>. The new renderer will be retained by the resulting NSAttributedString.
 
-    m_coreText.attributedString=[NSAttributedString attributedStringWithHTML:@"Hello <div /> World" renderer:^id<HTMLRenderer>(NSMutableDictionary* attributes)
-    {
-    	return [[BlueCircle alloc] init];
-    }];
+``` objective-c
+m_coreText.attributedString=[NSAttributedString attributedStringWithHTML:@"Hello <div /> World" renderer:^id<HTMLRenderer>(NSMutableDictionary* attributes)
+{
+	return [[BlueCircle alloc] init];
+}];
+```
 
 # Setup
 
