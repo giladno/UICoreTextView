@@ -1,49 +1,49 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>UICoreTextView by giladno</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+    <title>UICoreTextView by giladno</title>
   </head>
+
   <body>
-    <div class="wrapper">
-      <header>
+    <header>
+      <div class="inner">
         <h1>UICoreTextView</h1>
-        <p>Easy to use UIView which supports rendering using CoreText</p>
+        <h2>Easy to use UIView which supports rendering using CoreText</h2>
+        <a href="https://github.com/giladno/UICoreTextView" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
 
-        <p class="view"><a href="https://github.com/giladno/UICoreTextView">View the Project on GitHub <small>giladno/UICoreTextView</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/giladno/UICoreTextView/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/giladno/UICoreTextView/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/giladno/UICoreTextView">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h1>UICoreTextView</h1>
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>CoreTextView</h1>
 
 <p><img src="https://raw.github.com/giladno/UICoreTextView/gh-pages/images/screenshot.png"></p>
 
 <h1>Overview</h1>
 
-<p>iOS controls (such as <a href="http://developer.apple.com/library/ios/#documentation/uikit/reference/UILabel_Class/Reference/UILabel.html#//apple_ref/occ/instp/UILabel/attributedText">UILabel</a> and <a href="http://developer.apple.com/library/ios/#documentation/uikit/reference/uitextview_class/Reference/UITextView.html#//apple_ref/occ/instp/UITextView/attributedText">UITextView</a>) already support NSAttributedString, but UICoreTextView offers much more than simple styling.
-If your app needs to render both text &amp; images, or have some custom rendering on the fly - then UICoreTextView is for you.</p>
+<p>iOS controls (such as <a href="http://developer.apple.com/library/ios/#documentation/uikit/reference/UILabel_Class/Reference/UILabel.html#//apple_ref/occ/instp/UILabel/attributedText">UILabel</a> and <a href="http://developer.apple.com/library/ios/#documentation/uikit/reference/uitextview_class/Reference/UITextView.html#//apple_ref/occ/instp/UITextView/attributedText">UITextView</a>) already support NSAttributedString, but CoreTextView offers much more than simple styling.
+If your app needs to render both text &amp; images, or have some custom rendering on the fly - then CoreTextView is for you.</p>
 
 <p>There is another great core text library by Oliver Drobnik: <a href="https://github.com/Cocoanetics/DTCoreText">DTCoreText</a>. My goal was to create a very tiny and easy to use component (2 files only!) which is meant for simple tasks. If you really need full control of your output, I suggest to take a look at DTCoreText.</p>
 
-<p>UICoreTextView contains 2 major components:</p>
+<p>CoreTextView contains 2 major components:</p>
 
 <ul>
 <li>
-<b>UICoreTextView</b> - UIView based, used to render the string</li>
+<b>CoreTextView</b> - UIView based, used to render the string</li>
 <li>
 <b>HTMLParser</b> - HTML parser which generates an instance of NSAttributedString. There is also a category for NSAttributedString, for easy creation of NSAttributedString objects.</li>
 </ul><h2>Examples</h2>
@@ -86,13 +86,13 @@ If your app needs to render both text &amp; images, or have some custom renderin
 
 <h2>Styling</h2>
 
-<p>Since UICoreTextView was designed mainly to work with custom renderers - passing attributes from the HTML to the callback should be as simple as possible. For that reason, the syntax is based on plain old HTML tags and not modern CSS. The callback receives an instance of NSMutableAttributes, which contains all available attributes of that HTML node.</p>
+<p>Since CoreTextView was designed mainly to work with custom renderers - passing attributes from the HTML to the callback should be as simple as possible. For that reason, the syntax is based on plain old HTML tags and not modern CSS. The callback receives an instance of NSMutableAttributes, which contains all available attributes of that HTML node.</p>
 
 <p>The syntax was meant to be as simple as possible and at no point was it designed to follow HTML standards. For that reason, some of the HTML tags/attributes might differ from the original specs (for example, &lt;s&gt; for stroke rather than &lt;stroke&gt;)</p>
 
 <h3>Text</h3>
 
-<div class="highlight"><pre><span class="nt">&lt;span</span> <span class="na">font=</span><span class="s">'ArialMT|Georgia|...'</span> <span class="na">size=</span><span class="s">'16'</span><span class="nt">&gt;</span>Font manipulation, we can change font name and size<span class="nt">&lt;/font&gt;</span>
+<div class="highlight"><pre><span class="nt">&lt;span</span> <span class="na">font=</span><span class="s">'ArialMT|Georgia|noorehira|...'</span> <span class="na">size=</span><span class="s">'16'</span><span class="nt">&gt;</span>Font manipulation, we can change font name and size<span class="nt">&lt;/font&gt;</span>
 
 <span class="nt">&lt;b&gt;</span>Bold&gt;
 <span class="nt">&lt;u</span> <span class="na">style=</span><span class="s">'none|single|thick|double'</span><span class="nt">&gt;</span>Underline<span class="nt">&lt;/u&gt;</span>
@@ -114,7 +114,7 @@ If your app needs to render both text &amp; images, or have some custom renderin
 <h3>Links</h3>
 
 <p>By default, all links will render using a blue color and a single underline (which you can override using the <code>color</code> tag and an embedded <code>u</code> tag).
-UICoreTextView will try by default to open any link using <code>[[UIApplication sharedApplication] openURL:url]</code>. You can prevent this behaviour by returning YES from <code>-(BOOL)coreTextView:(UICoreTextView*)view openURL:(NSURL*)url</code> delegate.</p>
+CoreTextView will try by default to open any link using <code>[[UIApplication sharedApplication] openURL:url]</code>. You can prevent this behaviour by returning YES from <code>-(BOOL)coreTextView:(CoreTextView*)view openURL:(NSURL*)url</code> delegate.</p>
 
 <div class="highlight"><pre><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">'http://www.google.com/'</span><span class="nt">&gt;</span>Google.com<span class="nt">&lt;/a&gt;</span>
 <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">'tel:+180012345678'</span><span class="nt">&gt;</span>Click to call<span class="nt">&lt;/a&gt;</span>
@@ -198,9 +198,9 @@ For images, you can also use the <code>valign='middle'</code> attribute to cente
 
 <h1>Setup</h1>
 
-<p>Everything is contained in 2 files only: UICoreTextView.mm &amp; UICoreTextView.h.</p>
+<p>Everything is contained in 2 files only: CoreTextView.mm &amp; CoreTextView.h.</p>
 
-<p>UICoreTextView uses ARC. If your project does not use ARC, you'll need to set the following flag for UICoreTextView.mm: <code>-fobjc-arc</code> (<a href="http://stackoverflow.com/questions/10523816/how-to-enable-arc-for-a-single-file">How to enable ARC for a single file</a>)</p>
+<p>CoreTextView uses ARC. If your project does not use ARC, you'll need to set the following flag for CoreTextView.mm: <code>-fobjc-arc</code> (<a href="http://stackoverflow.com/questions/10523816/how-to-enable-arc-for-a-single-file">How to enable ARC for a single file</a>)</p>
 
 <p>You'll also need to include <code>libxml2.dylib</code> in your project:</p>
 
@@ -211,13 +211,13 @@ For images, you can also use the <code>valign='middle'</code> attribute to cente
 </li>
 </ul><h1>Credits</h1>
 
-<p>UICoreTextView was created by <a href="https://github.com/giladno">Gilad Novik</a></p>
+<p>CoreTextView was created by <a href="https://github.com/giladno">Gilad Novik</a></p>
 
 <p>Many thanks for Oliver Drobnik and his amazing work with <a href="https://github.com/Cocoanetics/DTCoreText">DTCoreText</a>.</p>
 
 <h1>License</h1>
 
-<p>UICoreTextView is licensed under <a href="http://opensource.org/licenses/zlib-license.php">zlib</a> license:</p>
+<p>CoreTextView is licensed under <a href="http://opensource.org/licenses/zlib-license.php">zlib</a> license:</p>
 
 <pre><code>Copyright (c) 2013 Gilad Novik
 
@@ -232,19 +232,31 @@ Permission is granted to anyone to use this software for any purpose, including 
 3. This notice may not be removed or altered from any source distribution.
 </code></pre>
 
-<p>You do not have to mention UICoreTextView in your app, but I'll appreciate if you do so anyway (or at least email me to let me know about your new great app :-)  )</p>
+<p>You do not have to mention CoreTextView in your app, but I'll appreciate if you do so anyway (or at least email me to let me know about your new great app :-)  )</p>
 
 <h1>Usage</h1>
 
 <p>Use it, fork it, push updates - enjoy it!</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/giladno">giladno</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/giladno/UICoreTextView/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/giladno/UICoreTextView/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/giladno/UICoreTextView"></a> is maintained by <a href="https://github.com/giladno">giladno</a>.</p>
+
+          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
     </div>
-    <script src="javascripts/scale.fix.js"></script>
-              <script type="text/javascript">
+
+            <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
