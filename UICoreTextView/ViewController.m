@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "UICoreTextView.h"
+#import "CoreTextView.h"
 
 @interface CustomRenderer : NSObject<HTMLRenderer>
 @property(nonatomic,assign) CGSize size;
@@ -16,13 +16,13 @@
 
 @implementation ViewController
 {
-	UICoreTextView* m_coreText;
+	CoreTextView* m_coreText;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	m_coreText=[[UICoreTextView alloc] initWithFrame:self.view.bounds];
+	m_coreText=[[CoreTextView alloc] initWithFrame:self.view.bounds];
 	m_coreText.autoresizingMask=UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
 	m_coreText.backgroundColor=[UIColor clearColor];
 	m_coreText.contentInset=UIEdgeInsetsMake(10, 10, 10, 10);

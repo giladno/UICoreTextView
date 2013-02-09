@@ -1,5 +1,5 @@
 //
-//  UICoreTextView.m
+//  CoreTextView.m
 //
 //  Created by Gilad Novik on 2013-01-10.
 //  Copyright (c) 2013 Gilad Novik.
@@ -28,13 +28,13 @@
 #import <objc/runtime.h>
 #import <libxml/HTMLparser.h>
 #import <CoreText/CoreText.h>
-#import "UICoreTextView.h"
+#import "CoreTextView.h"
 
 #if! __has_feature(objc_arc)
 #error This file requires ARC. Please set it explicitly using the '-fobjc-arc' flag
 #endif
 
-@implementation UICoreTextView
+@implementation CoreTextView
 {
 	id m_frameSetter;
 	NSMutableDictionary* m_links;

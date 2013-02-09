@@ -1,5 +1,5 @@
 //
-//  UICoreTextView.h
+//  CoreTextView.h
 //
 //  Created by Gilad Novik on 2013-01-10.
 //  Copyright (c) 2013 Gilad Novik.
@@ -27,7 +27,7 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol UICoreTextViewDelegate;
+@protocol CoreTextViewDelegate;
 
 @protocol HTMLRenderer<NSObject>
 @required
@@ -40,16 +40,16 @@
 -(void)renderInContext:(CGContextRef)context rect:(CGRect)rect;
 @end
 
-@interface UICoreTextView : UIView
+@interface CoreTextView : UIView
 @property(nonatomic,strong) NSAttributedString* attributedString;
 @property(nonatomic,assign) UIEdgeInsets contentInset;
-@property(nonatomic,assign) id<UICoreTextViewDelegate> delegate;
+@property(nonatomic,assign) id<CoreTextViewDelegate> delegate;
 @property(nonatomic,assign) BOOL debugBorders;
 @end
 
-@protocol UICoreTextViewDelegate<NSObject>
+@protocol CoreTextViewDelegate<NSObject>
 @optional
--(BOOL)coreTextView:(UICoreTextView*)view openURL:(NSURL*)url;
+-(BOOL)coreTextView:(CoreTextView*)view openURL:(NSURL*)url;
 @end
 
 @interface HTMLParser : NSObject

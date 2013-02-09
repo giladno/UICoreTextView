@@ -1,17 +1,17 @@
-UICoreTextView
+CoreTextView
 ==============
 
 <img src='https://raw.github.com/giladno/UICoreTextView/gh-pages/images/screenshot.png' />
 
 # Overview
-iOS controls (such as [UILabel](http://developer.apple.com/library/ios/#documentation/uikit/reference/UILabel_Class/Reference/UILabel.html#//apple_ref/occ/instp/UILabel/attributedText) and [UITextView](http://developer.apple.com/library/ios/#documentation/uikit/reference/uitextview_class/Reference/UITextView.html#//apple_ref/occ/instp/UITextView/attributedText)) already support NSAttributedString, but UICoreTextView offers much more than simple styling.
-If your app needs to render both text & images, or have some custom rendering on the fly - then UICoreTextView is for you.
+iOS controls (such as [UILabel](http://developer.apple.com/library/ios/#documentation/uikit/reference/UILabel_Class/Reference/UILabel.html#//apple_ref/occ/instp/UILabel/attributedText) and [UITextView](http://developer.apple.com/library/ios/#documentation/uikit/reference/uitextview_class/Reference/UITextView.html#//apple_ref/occ/instp/UITextView/attributedText)) already support NSAttributedString, but CoreTextView offers much more than simple styling.
+If your app needs to render both text & images, or have some custom rendering on the fly - then CoreTextView is for you.
 
 There is another great core text library by Oliver Drobnik: <a href='https://github.com/Cocoanetics/DTCoreText'>DTCoreText</a>. My goal was to create a very tiny and easy to use component (2 files only!) which is meant for simple tasks. If you really need full control of your output, I suggest to take a look at DTCoreText.
 
-UICoreTextView contains 2 major components:
+CoreTextView contains 2 major components:
 
-* <b>UICoreTextView</b> - UIView based, used to render the string
+* <b>CoreTextView</b> - UIView based, used to render the string
 * <b>HTMLParser</b> - HTML parser which generates an instance of NSAttributedString. There is also a category for NSAttributedString, for easy creation of NSAttributedString objects.
 
 Examples
@@ -54,7 +54,7 @@ m_coreText.attributedString=[NSAttributedString attributedStringWithHTML:html re
 Styling
 -
 
-Since UICoreTextView was designed mainly to work with custom renderers - passing attributes from the HTML to the callback should be as simple as possible. For that reason, the syntax is based on plain old HTML tags and not modern CSS. The callback receives an instance of NSMutableAttributes, which contains all available attributes of that HTML node.
+Since CoreTextView was designed mainly to work with custom renderers - passing attributes from the HTML to the callback should be as simple as possible. For that reason, the syntax is based on plain old HTML tags and not modern CSS. The callback receives an instance of NSMutableAttributes, which contains all available attributes of that HTML node.
 
 The syntax was meant to be as simple as possible and at no point was it designed to follow HTML standards. For that reason, some of the HTML tags/attributes might differ from the original specs (for example, &lt;s&gt; for stroke rather than &lt;stroke&gt;)
 
@@ -81,7 +81,7 @@ The syntax was meant to be as simple as possible and at no point was it designed
 
 ### Links
 By default, all links will render using a blue color and a single underline (which you can override using the <code>color</code> tag and an embedded <code>u</code> tag).
-UICoreTextView will try by default to open any link using <code>[[UIApplication sharedApplication] openURL:url]</code>. You can prevent this behaviour by returning YES from <code>-(BOOL)coreTextView:(UICoreTextView*)view openURL:(NSURL*)url</code> delegate.
+CoreTextView will try by default to open any link using <code>[[UIApplication sharedApplication] openURL:url]</code>. You can prevent this behaviour by returning YES from <code>-(BOOL)coreTextView:(CoreTextView*)view openURL:(NSURL*)url</code> delegate.
 
 ``` html
 <a href='http://www.google.com/'>Google.com</a>
@@ -171,9 +171,9 @@ m_coreText.attributedString=[NSAttributedString attributedStringWithHTML:@"Hello
 
 # Setup
 
-Everything is contained in 2 files only: UICoreTextView.mm & UICoreTextView.h.
+Everything is contained in 2 files only: CoreTextView.mm & CoreTextView.h.
 
-UICoreTextView uses ARC. If your project does not use ARC, you'll need to set the following flag for UICoreTextView.mm: <code>-fobjc-arc</code> (<a href='http://stackoverflow.com/questions/10523816/how-to-enable-arc-for-a-single-file'>How to enable ARC for a single file</a>)
+CoreTextView uses ARC. If your project does not use ARC, you'll need to set the following flag for CoreTextView.mm: <code>-fobjc-arc</code> (<a href='http://stackoverflow.com/questions/10523816/how-to-enable-arc-for-a-single-file'>How to enable ARC for a single file</a>)
 
 You'll also need to include <code>libxml2.dylib</code> in your project:
 
@@ -182,13 +182,13 @@ You'll also need to include <code>libxml2.dylib</code> in your project:
 
 # Credits
 
-UICoreTextView was created by <a href='https://github.com/giladno'>Gilad Novik</a>
+CoreTextView was created by <a href='https://github.com/giladno'>Gilad Novik</a>
 
 Many thanks for Oliver Drobnik and his amazing work with <a href='https://github.com/Cocoanetics/DTCoreText'>DTCoreText</a>.
 
 # License
 
-UICoreTextView is licensed under <a href='http://opensource.org/licenses/zlib-license.php'>zlib</a> license:
+CoreTextView is licensed under <a href='http://opensource.org/licenses/zlib-license.php'>zlib</a> license:
 
     Copyright (c) 2013 Gilad Novik
 
@@ -202,7 +202,7 @@ UICoreTextView is licensed under <a href='http://opensource.org/licenses/zlib-li
 
     3. This notice may not be removed or altered from any source distribution.
 
-You do not have to mention UICoreTextView in your app, but I'll appreciate if you do so anyway (or at least email me to let me know about your new great app :-)  )
+You do not have to mention CoreTextView in your app, but I'll appreciate if you do so anyway (or at least email me to let me know about your new great app :-)  )
 
 # Usage
 

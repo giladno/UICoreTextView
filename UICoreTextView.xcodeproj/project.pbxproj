@@ -19,12 +19,12 @@
 		1BD7F87116A7D4B400D82862 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BD7F86F16A7D4B400D82862 /* MainStoryboard_iPhone.storyboard */; };
 		1BD7F87416A7D4B400D82862 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BD7F87216A7D4B400D82862 /* MainStoryboard_iPad.storyboard */; };
 		1BD7F87716A7D4B400D82862 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BD7F87616A7D4B400D82862 /* ViewController.m */; };
-		1BD7F88016A7D5A800D82862 /* UICoreTextView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1BD7F87F16A7D5A800D82862 /* UICoreTextView.mm */; };
 		1BD7F88216A7D5C500D82862 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BD7F88116A7D5C500D82862 /* libxml2.dylib */; };
 		1BD7F88416A7D60000D82862 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BD7F88316A7D60000D82862 /* CoreText.framework */; };
 		1BD7F88616A7D8DE00D82862 /* view.html in Resources */ = {isa = PBXBuildFile; fileRef = 1BD7F88516A7D8DE00D82862 /* view.html */; };
 		1BD7F88816A7E0EA00D82862 /* github.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BD7F88716A7E0EA00D82862 /* github.png */; };
 		1BFB838C16C6049500F57214 /* noorehira.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1BFB838B16C6049500F57214 /* noorehira.ttf */; };
+		1BFB838F16C6089300F57214 /* CoreTextView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1BFB838E16C6089300F57214 /* CoreTextView.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,13 +45,13 @@
 		1BD7F87316A7D4B400D82862 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		1BD7F87516A7D4B400D82862 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		1BD7F87616A7D4B400D82862 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		1BD7F87E16A7D5A800D82862 /* UICoreTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICoreTextView.h; sourceTree = SOURCE_ROOT; };
-		1BD7F87F16A7D5A800D82862 /* UICoreTextView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UICoreTextView.mm; sourceTree = SOURCE_ROOT; };
 		1BD7F88116A7D5C500D82862 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		1BD7F88316A7D60000D82862 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		1BD7F88516A7D8DE00D82862 /* view.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = view.html; sourceTree = "<group>"; };
 		1BD7F88716A7E0EA00D82862 /* github.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = github.png; sourceTree = "<group>"; };
 		1BFB838B16C6049500F57214 /* noorehira.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = noorehira.ttf; sourceTree = "<group>"; };
+		1BFB838D16C6089300F57214 /* CoreTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreTextView.h; sourceTree = SOURCE_ROOT; };
+		1BFB838E16C6089300F57214 /* CoreTextView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CoreTextView.mm; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,14 +102,14 @@
 		1BD7F85D16A7D4B300D82862 /* UICoreTextView */ = {
 			isa = PBXGroup;
 			children = (
+				1BFB838D16C6089300F57214 /* CoreTextView.h */,
+				1BFB838E16C6089300F57214 /* CoreTextView.mm */,
 				1BD7F86616A7D4B300D82862 /* AppDelegate.h */,
 				1BD7F86716A7D4B400D82862 /* AppDelegate.m */,
 				1BD7F86F16A7D4B400D82862 /* MainStoryboard_iPhone.storyboard */,
 				1BD7F87216A7D4B400D82862 /* MainStoryboard_iPad.storyboard */,
 				1BD7F87516A7D4B400D82862 /* ViewController.h */,
 				1BD7F87616A7D4B400D82862 /* ViewController.m */,
-				1BD7F87E16A7D5A800D82862 /* UICoreTextView.h */,
-				1BD7F87F16A7D5A800D82862 /* UICoreTextView.mm */,
 				1BD7F85E16A7D4B300D82862 /* Supporting Files */,
 			);
 			path = UICoreTextView;
@@ -205,7 +205,7 @@
 				1BD7F86416A7D4B300D82862 /* main.m in Sources */,
 				1BD7F86816A7D4B400D82862 /* AppDelegate.m in Sources */,
 				1BD7F87716A7D4B400D82862 /* ViewController.m in Sources */,
-				1BD7F88016A7D5A800D82862 /* UICoreTextView.mm in Sources */,
+				1BFB838F16C6089300F57214 /* CoreTextView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
