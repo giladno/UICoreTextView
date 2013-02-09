@@ -60,7 +60,7 @@ The syntax was meant to be as simple as possible and at no point was it designed
 
 ### Text
 ``` html
-<span font='ArialMT|Georgia|...' size='16'>Font manipulation, we can change font name and size</font>
+<span font='ArialMT|Georgia|noorehira|...' size='16'>Font manipulation, we can change font name and size</font>
 
 <b>Bold>
 <u style='none|single|thick|double'>Underline</u>
