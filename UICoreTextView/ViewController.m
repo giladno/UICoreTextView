@@ -22,8 +22,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	m_coreText=[[CoreTextView alloc] initWithFrame:self.view.bounds];
-	m_coreText.autoresizingMask=UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+	m_coreText=[[CoreTextView alloc] initWithFrame:CGRectZero];
 	m_coreText.backgroundColor=[UIColor clearColor];
 	m_coreText.contentInset=UIEdgeInsetsMake(10, 10, 10, 10);
 	
@@ -36,7 +35,13 @@
 		renderer.size=CGSizeMake(16, 16);
 		return renderer;
 	}];
-	[self.view addSubview:m_coreText];
+	m_coreText.frame=CGRectMake(0, 0, self.view.bounds.size.width, [m_coreText sizeThatFits:CGSizeMake(self.view.bounds.size.width, MAXFLOAT)].height);
+	
+	UIScrollView* scroll=[[UIScrollView alloc] initWithFrame:self.view.bounds];
+	scroll.autoresizingMask=UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+	scroll.contentSize=m_coreText.frame.size;
+	[scroll addSubview:m_coreText];
+	[self.view addSubview:scroll];
 }
 
 - (void)didReceiveMemoryWarning
