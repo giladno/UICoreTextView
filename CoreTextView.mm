@@ -117,7 +117,7 @@
 			  }
 			  if (attributes[@"href"])
 			  {
-				  [m_links setObject:attributes[@"href"] forKey:[NSValue valueWithCGRect:CGRectMake(bounds.origin.x, self.bounds.size.height-bounds.origin.y-m_contentInset.top-descent, bounds.size.width, bounds.size.height)]];
+				  [m_links setObject:attributes[@"href"] forKey:[NSValue valueWithCGRect:CGRectMake(bounds.origin.x, self.bounds.size.height-(bounds.origin.y+bounds.size.height)-descent, bounds.size.width, bounds.size.height)]];
 			  }
 			  if (m_debugBorders)
 			  {
